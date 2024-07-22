@@ -1,0 +1,40 @@
+.sign-up-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+
+  .sign-up-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .sign-up-form .form-group {
+    margin-bottom: 15px;
+    margin-right: 20px;
+  }
+
+  .sign-up-form .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .sign-up-form .form-control.error {
+    border: 2px solid red;
+  }
+
+  .sign-up-form .btn {
+    width: auto;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto; 
+  }
+
+  .sign-up-form p {
+    margin-top: 20px;
+    text-align: center;
+  }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forum</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+</head>
+<body>
+  <header>
+    <%= image_tag 'logo.jpg', alt: 'Logo', class: 'logo' %>
+    <h1>Blog Forum</h1>
+    <div class="sign-in">
+    <% if Current.user %>
+    <div class="avatar-upload">
+        <input type="file" name="avatar" id="avatar" accept="image/*">
+    </div>
+    <div class="current-user">
+      <span><%= Current.user.username %></span>
+    </div>
+    <div class="current-user">
+      <%= button_to "Logout", logout_path, method: :delete, class: "head-link" %>
+    </div>
+    <% else %>
+    <div class="current-user">
+      <%= link_to "Sign Up", signup_path, class: "head-link" %>
+    </div>
+    <div class="current-user">
+      <%= link_to "Sign In", signin_path, class: "head-link" %>
+    </div>
+    <% end %>
+  </div>
+  </header>
+
+  <div class="container">
+    <aside class="left-nav">
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'About', '#' %></li>
+        <li><%= link_to 'Contact', '#' %></li>
+        <li><%= link_to 'List Post', '#' %></li>
+      </ul>
+    </aside>
+
+    <main>
+      <%= yield %>
+    </main>
+  </div>
+
+  <footer>
+    <p>2024 Forum</p>
+  </footer>
+</body>
+</html>

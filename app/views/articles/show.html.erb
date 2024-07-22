@@ -1,0 +1,30 @@
+<h1><%= @article.title %></h1>
+
+<p><%= @article.body %></p>
+
+<% if @article.image.attached? %>
+  <%= image_tag @article.image, size: "500x500" %>
+<% end %>
+
+<h4>Comments</h4>
+
+<%= form_with(model: [ @article, Comment.new ]) do |form| %>
+  <div>
+    <%= form.text_area :body %><br>
+    <%= form.submit "Add Comment" %>
+  </div>
+<% end %>
+
+<ul>
+  <% @article.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li><%= link_to "Destroy", article_path(@article), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              } %></li>
+</ul>
