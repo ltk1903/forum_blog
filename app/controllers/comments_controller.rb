@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
+    @comment.user = Current.user
 
     if @comment.save
       redirect_to @article
@@ -13,6 +14,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :image)
   end
 end

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :articles
+    resources :comments
+    root "dashboard#index"
+  end
+  
   resources :comments
   resources :articles
   get "signup", to: "registration#new"
@@ -11,6 +18,7 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  resources :users, only: [:new, :create]
   resources :articles do
     resources :comments, only: [:create]
   end

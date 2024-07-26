@@ -1,3 +1,4 @@
+<%=stylesheet_link_tag('custom')%>
 <h1><%= @article.title %></h1>
 
 <p><%= @article.body %></p>
@@ -6,18 +7,25 @@
   <%= image_tag @article.image, size: "500x500" %>
 <% end %>
 
-<h4>Comments</h4>
+<h2>Comments</h2>
 
-<%= form_with(model: [ @article, Comment.new ]) do |form| %>
+<%= form_with(model: [ @article, Comment.new ], local: true, html: { multipart: true }) do |form| %>
   <div>
     <%= form.text_area :body %><br>
+    <%= form.file_field :image %><br>
     <%= form.submit "Add Comment" %>
   </div>
 <% end %>
 
 <ul>
   <% @article.comments.each do |comment| %>
-    <li><%= comment.body %></li>
+    <li>
+      <i class="fa fa-user"></i>
+      <strong><%= comment.user.username %></strong>: <%= comment.body %>
+      <% if comment.image.attached? %>
+        <%= image_tag comment.image, size: "100x100" %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

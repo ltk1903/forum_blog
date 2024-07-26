@@ -14,6 +14,9 @@ gem "pg", "~> 1.1"
 # Add bcrypt gem for has_secure_password
 gem 'bcrypt', '~> 3.1.20'
 
+gem 'font-awesome-rails'
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
