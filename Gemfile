@@ -16,6 +16,8 @@ gem 'bcrypt', '~> 3.1.20'
 
 gem 'font-awesome-rails'
 
+gem 'devise', '~> 4.9'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"

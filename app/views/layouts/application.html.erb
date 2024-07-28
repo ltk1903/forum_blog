@@ -10,28 +10,24 @@
     <%= javascript_importmap_tags %>
 </head>
 <body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
   <header>
     <%= image_tag 'logo.jpg', alt: 'Logo', class: 'logo' %>
     <h1>Blog Forum</h1>
     <div class="sign-in">
-    <% if Current.user %>
-    <div class="avatar-upload">
-        <input type="file" name="avatar" id="avatar" accept="image/*">
-    </div>
-    <div class="current-user">
-      <span><%= Current.user.username %></span>
-    </div>
-    <div class="current-user">
-      <%= button_to "Logout", logout_path, method: :delete, class: "head-link" %>
-    </div>
-    <% else %>
-    <div class="current-user">
-      <%= link_to "Sign Up", signup_path, class: "head-link" %>
-    </div>
-    <div class="current-user">
-      <%= link_to "Sign In", signin_path, class: "head-link" %>
-    </div>
-    <% end %>
+    <nav>
+    <ul>
+      <% if user_signed_in? %>
+        <li>Welcome, <%= current_user.username %>!</li>
+        <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Login', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </nav>
   </div>
   </header>
 

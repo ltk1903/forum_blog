@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users, path: '', path_names: { 
+    sign_in: 'signin', 
+    sign_out: 'logout', 
+    sign_up: 'signup' 
+  }, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords',
+    confirmations: 'users/confirmations'
+  }
+
   namespace :admin do
     resources :users
     resources :articles
@@ -7,19 +18,9 @@ Rails.application.routes.draw do
   end
   
   resources :comments
-  resources :articles
-  get "signup", to: "registration#new"
-  post "signup", to: "registration#create"
-  
-  get "signin", to: "sessions#new"
-  post "signin", to: "sessions#create"
-
-  delete "logout", to: "sessions#destroy"
-
-  root "home#index"
-
-  resources :users, only: [:new, :create]
   resources :articles do
     resources :comments, only: [:create]
   end
+
+  root "home#index"
 end
