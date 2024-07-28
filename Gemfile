@@ -18,6 +18,9 @@ gem 'font-awesome-rails'
 
 gem 'devise', '~> 4.9'
 
+gem 'bootstrap', '~> 5.1.3'
+
+gem 'popper_js'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
