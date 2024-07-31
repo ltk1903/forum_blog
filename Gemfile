@@ -22,6 +22,10 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'popper_js'
 
+gem 'jquery-rails'
+
+gem "slim-rails"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
