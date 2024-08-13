@@ -10,6 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /signup
   def create
     super
+    # if resource.save
+    #   UserMailer.welcome_email(resource).deliver_later
+    # end
   end
 
   # GET /resource/edit

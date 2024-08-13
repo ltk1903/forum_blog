@@ -1,0 +1,79 @@
+@import "bootstrap";
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  max-height: 50px;
+  padding-left: 30px;
+}
+
+.notice {
+  margin: 10px 0;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.alert {
+  margin: 10px 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.sign-in {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+}
+
+.left-nav {
+  width: 250px;
+  background-color: #343a40;
+  padding: 15px;
+  height: 100vh; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.left-nav .list-group-item {
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.left-nav .list-group-item:hover {
+  background-color: #495057;
+}
+
+.main-content {
+  margin-left: 250px;
+  flex-grow: 1;
+  padding: 15px;
+}
+
+footer {
+  background-color: #af0cc4;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}

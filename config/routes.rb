@@ -10,12 +10,23 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  namespace :admin do
-    resources :users
-    resources :articles
-    resources :comments
-    root "dashboard#index"
-  end
+  # namespace :admin do
+  #   get "index", to: "dashboard#index"
+
+  #   resources :users
+  #   resources :articles
+  #   resources :comments
+  #   root "dashboard#index"
+  # end
+
+  scope 'admin', module: :admin, as: :admin do
+      get "index", to: "dashboard#index"
+
+      resources :users
+      resources :articles
+      resources :comments
+      root "dashboard#index"
+    end
   
   resources :comments
   resources :articles do

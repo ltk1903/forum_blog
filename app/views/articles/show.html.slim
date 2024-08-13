@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    = stylesheet_link_tag('custom')
+  body
+    h1 = @article.title
+
+    p = @article.body
+
+    - if @article.image.attached?
+      = image_tag @article.image, size: "500x500"
+
+    h2 Comments
+
+    ul
+      - @article.comments.each do |comment|
+        li
+          i.fa.fa-user
+          strong = comment.user.username
+          | : #{comment.body}
+          - if comment.image.attached?
+            = image_tag comment.image, size: "100x100"
+
+    - if user_signed_in?
+      = form_with(model: [@article, Comment.new], local: true, html: { multipart: true }) do |form|
+        div
+          = form.text_area :body
+          br
+          = form.file_field :image
+          br
+          = form.submit "Add Comment"
+    - else
+      p
+        | You need to 
+        = link_to 'log in', new_user_session_path
+        |  or 
+        = link_to 'sign up', new_user_registration_path
+        |  to comment.
+
+    ul
+      li = link_to "Edit", edit_article_path(@article)
+      li = link_to "Destroy", article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }

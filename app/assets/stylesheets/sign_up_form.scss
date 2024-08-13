@@ -1,0 +1,67 @@
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5em; 
+    font-family: 'Arial', sans-serif;
+  }
+  
+  form .field label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 0.5em;
+  }
+  
+  form .field input[type="text"],
+  form .field input[type="email"],
+  form .field input[type="password"] {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+  }
+  
+  form .actions input[type="submit"] {
+    width: 100%;
+    padding: 0.75em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form .actions input[type="submit"]:hover {
+    background-color: #218838;
+  }
+  
+  form + .devise-links {
+    text-align: center;
+    margin-top: 1em;
+  }
+  
+  form + .devise-links a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  form + .devise-links a:hover {
+    color: #0056b3;
+  }
+  

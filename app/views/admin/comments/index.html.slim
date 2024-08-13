@@ -1,0 +1,8 @@
+h1 Manage Comments
+
+ul
+  - @comments.each do |comment|
+    li
+      strong = comment.user.username
+      | : #{comment.body}
+      = link_to 'Delete', admin_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }

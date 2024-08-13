@@ -1,5 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-  before_action :require_admin
+  # before_action :require_admin
 
   def index
     @articles = Article.all

@@ -1,2 +1,11 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<h1>Manage Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.username %> - <%= user.email %>
+      <%= link_to 'Edit', edit_admin_user_path(user) %> |
+      <%= link_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>

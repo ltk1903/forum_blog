@@ -1,7 +1,4 @@
-# app/controllers/users/sessions_controller.rb
 class Users::SessionsController < Devise::SessionsController
-  # Ghi đè các hành động của Devise nếu cần
-
   # GET /signin
   def new
     super
@@ -19,12 +16,10 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  # Ghi đè phương thức này để chuyển hướng sau khi đăng nhập thành công
   def after_sign_in_path_for(resource)
-    root_path
+    articles_path
   end
 
-  # Ghi đè phương thức này để chuyển hướng sau khi đăng xuất
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
